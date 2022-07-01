@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        starting()
+        update()
     }
 
     @IBAction func pressedButton(_ sender: UIButton) {
@@ -30,17 +30,17 @@ class ViewController: UIViewController {
         
         if answerResult{
             sender.backgroundColor = UIColor.green
-        } else {
+        }else{
             sender.backgroundColor = UIColor.red
         }
         
         quizBrain.nextQuestion()
         
-        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(starting), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(update), userInfo: nil, repeats: false)
 
     }
     
-    @objc func starting(){
+    @objc func update(){
         questionLabel.text = quizBrain.getQuestionText()
         scoreLabel.text = "Score: \(quizBrain.getScore())"
         button1.setTitle(quizBrain.getButtonName(buttonNumber: 1), for: .normal)
