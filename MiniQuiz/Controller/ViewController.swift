@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         
         if answerResult{
             sender.backgroundColor = UIColor.green
-        }else{
+        } else {
             sender.backgroundColor = UIColor.red
         }
         
